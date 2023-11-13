@@ -11,36 +11,22 @@ class DiscosApiController extends ApiController{
         $this->model = new discosModel();
     }
 
-    function getDiscos($params = []){
-        if(empty($params)){
-            //FILTRO ODENA ASCENDENTE
-            $ordenar = $_GET['ordenar'];
-            if (isset($ordenar)&&($ordenar='true')){
-               
-                $discos = $this->model->getDiscos();
-                
-                //ORDENO ARREGLO  (se me rompe aca :C)
-                $length = (count($discos));
-                for ($i = 0; $i < $length; $i + 1){
-                    for($j = 0; $j < $length - 1; $j + 1){
-                        if($discos[$j] > $discos[$j + 1]){      //LO QUE TENGO QUE COMPARAR ES ALGUNO DE LOS CAMPOS
-                            $temporal = $discos[$j];            //DE LOS OBJETOS($nombre, $precio, $autor, o $genero)
-                            $discos[$j] = $discos[$j + 1];      //PERO NO SE COMO
-                            $discos[$j + 1] = $temporal;
-                        }
-                    }
-                }
-                
-                
-                //Y LUEGO SE LO ENVIO A LA VISTA(YA ORDENADO)
-                $this->view->respose($discos, 200);
-            }else{//SI NO HAY PARAMETRO SORT PARA ORDENAR EN LA URL PASO EL ARREGLO DE DISCOS NOMAL(ODENADO POR ID)
-                $discos = $this->model->getDiscos();
-                $this->view->response($discos, 200);
-            }
+    function getDiscos($params = null){
+        $parametros = [];
+
+        if (isset($_GET['sort'])){
+            $parametros['sort'] = $_GET['sort'];
         }
-        //no anda D:
+
+        if (isset($_GET['order'])){
+            $parametros['order'] = $_GET['order'];
+        }
+        
+        $discos = $this->model->getDiscos($parametros);
+        $this->view->response($discos, 200);
     }
+    
+    
 
     function getDisco($params = [":ID"]){
         $disco = $this->model->getDisco($params[":ID"]);

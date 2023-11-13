@@ -5,8 +5,21 @@ require_once 'app/models/model.php';
 
 class discosModel extends Model{
 
-    public function getDiscos(){
-        $query = $this->db->prepare('SELECT * FROM discos');
+    public function getDiscos($parametros){
+        $sql = 'SELECT * FROM discos';
+
+        if (isset($parametros['order'])){
+           
+            $sql .= ' ORDER BY '.$parametros['order'];
+
+            if (isset($parametros['sort'])){
+
+                $sql .= ' '.$parametros['sort'];
+
+            }
+        }
+
+        $query = $this->db->prepare($sql);
         $query->execute();
         $discos = $query->fetchAll(PDO::FETCH_OBJ);
         return $discos;
