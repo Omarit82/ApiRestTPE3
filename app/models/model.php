@@ -1,4 +1,5 @@
 <?php
+    require_once "./config.php";
     class Model {
         protected $db;
 
@@ -25,13 +26,13 @@
                 /*!40101 SET NAMES utf8mb4 */;
 
                 --
-                -- Database: `comercio_discos`
+                -- Base de datos: `comercio_discos`
                 --
 
                 -- --------------------------------------------------------
 
                 --
-                -- Table structure for table `discos`
+                -- Estructura de tabla para la tabla `discos`
                 --
 
                 CREATE TABLE `discos` (
@@ -43,7 +44,7 @@
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
                 --
-                -- Dumping data for table `discos`
+                -- Volcado de datos para la tabla `discos`
                 --
 
                 INSERT INTO `discos` (`id`, `nombre`, `autor`, `genero`, `precio`) VALUES
@@ -55,12 +56,13 @@
                 (7, 'Girotondo', 'Giusy Ferreri', 'Pop', 6250.25),
                 (8, 'Cortometraggi', 'Giusy Ferreri', 'Pop', 4250.75),
                 (9, 'Gulp!', 'Patricio Rey y sus Redonditos de Ricota', 'Rock', 6500),
-                (14, 'JiJiJi', 'Indio Solari', 'Rock', 5000.33);
+                (14, 'JiJiJi', 'Indio Solari', 'Rock', 5000.33),
+                (15, 'Crossroads', 'Eric Clapton', 'Blues', 7500.00);
 
                 -- --------------------------------------------------------
 
                 --
-                -- Table structure for table `genero`
+                -- Estructura de tabla para la tabla `genero`
                 --
 
                 CREATE TABLE `genero` (
@@ -69,19 +71,20 @@
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
                 --
-                -- Dumping data for table `genero`
+                -- Volcado de datos para la tabla `genero`
                 --
 
                 INSERT INTO `genero` (`id_genero`, `genero`) VALUES
                 (1, 'rock'),
                 (2, 'blues'),
                 (3, 'pop'),
-                (4, 'clasica');
+                (4, 'clasica'),
+                (5, 'cumbia'); 
 
                 -- --------------------------------------------------------
 
                 --
-                -- Table structure for table `users`
+                -- Estructura de tabla para la tabla `users`
                 --
 
                 CREATE TABLE `users` (
@@ -92,31 +95,43 @@
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
                 --
-                -- Dumping data for table `users`
+                -- Volcado de datos para la tabla `users`
                 --
 
                 INSERT INTO `users` (`id`, `email`, `pass`, `nivel`) VALUES
-                (1, 'omar@email.com', '$2y$10$Ok1SIqiVKjesOXh/uUHKge/F9LFvFTqhpu8hdnBfxZ7iRqItW1Dou', 'admin'),
-                (2, 'matias@email.com', '$2y$10$NqrD5XR954nuZPsfs8rRzeOBVAdBLfEVaYj2gHFVaNPpCOLJjxDC.', 'admin'),
-                (3, 'guest@email.com', '$2y$10$a2R1d1falFvRJc0hm0knWeZygzcgHnpXXQ2FtjWy59Ny5jJ8D9jhW', 'user'),
-                (4, 'webadmin', '$2y$10$b095X3XhrDjPwzbj3BgwiuN.1RyATcDddARL7yxi5.pBuLItt4w9K', 'admin');
+                (1, 'omar@email.com', '$2y$10''$''Ok1SIqiVKjesOXh/uUHKge/F9LFvFTqhpu8hdnBfxZ7iRqItW1Dou', 'admin'),
+                (2, 'matias@email.com', '$2y$10''$''NqrD5XR954nuZPsfs8rRzeOBVAdBLfEVaYj2gHFVaNPpCOLJjxDC.', 'admin'),
+                (3, 'guest@email.com', '$2y$10''$''a2R1d1falFvRJc0hm0knWeZygzcgHnpXXQ2FtjWy59Ny5jJ8D9jhW', 'user'),
+                (4, 'webadmin', '$2y$10''$''b095X3XhrDjPwzbj3BgwiuN.1RyATcDddARL7yxi5.pBuLItt4w9K', 'admin');
 
                 --
-                -- Indexes for dumped tables
+                -- Índices para tablas volcadas
                 --
 
                 --
-                -- Indexes for table `users`
+                -- Indices de la tabla `discos`
+                --
+                ALTER TABLE `discos`
+                ADD PRIMARY KEY (`id`);
+
+                --
+                -- Indices de la tabla `users`
                 --
                 ALTER TABLE `users`
                 ADD PRIMARY KEY (`id`);
 
                 --
-                -- AUTO_INCREMENT for dumped tables
+                -- AUTO_INCREMENT de las tablas volcadas
                 --
 
                 --
-                -- AUTO_INCREMENT for table `users`
+                -- AUTO_INCREMENT de la tabla `discos`
+                --
+                ALTER TABLE `discos`
+                MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+                --
+                -- AUTO_INCREMENT de la tabla `users`
                 --
                 ALTER TABLE `users`
                 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
@@ -125,7 +140,6 @@
                 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
                 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
                 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
                 END;
                 $this->db->query($sql);
             }
