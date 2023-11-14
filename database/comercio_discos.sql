@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2023 a las 01:43:20
+-- Tiempo de generación: 14-11-2023 a las 03:13:09
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -52,9 +52,10 @@ INSERT INTO `discos` (`id`, `nombre`, `autor`, `genero`, `precio`, `oferta`) VAL
 (14, 'JiJiJi', 'Indio Solari', 'Rock', 5000.33, 0),
 (15, 'Crossroads', 'Eric Clapton', 'Blues', 7500, 0),
 (16, 'Las ciudades Venideras', 'Emilia Inclan', 'Pop', 7500.2, 1),
-(17, 'Pies Descalzos', 'Shakira', 'Pop', 5520.0, 1),
+(17, 'Pies Descalzos', 'Shakira', 'Pop', 5520, 1),
 (18, 'Get Up', 'Bryan Adams', 'Rock', 7500.2, 0),
-(19, 'El amor despues del amor', 'Fito Paez', 'Rock', 4500, 1);
+(19, 'El amor despues del amor', 'Fito Paez', 'Rock', 4500, 1),
+(20, 'El ruiseñor, el amor y la muerte', 'Los Fundamentalistas del Aire Acondicionado', 'Rock', 5520.52, 0);
 
 -- --------------------------------------------------------
 
@@ -92,16 +93,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `email`, `pass`, `nivel`) VALUES
-(1, 'omar@email.com', '$2y$10$Ok1SIqiVKjesOXh/uUHKge/F9LFvFTqhpu8hdnBfxZ7iRqItW1Dou', 'admin'),
-(2, 'matias@email.com', '$2y$10$NqrD5XR954nuZPsfs8rRzeOBVAdBLfEVaYj2gHFVaNPpCOLJjxDC.', 'admin'),
-(3, 'guest@email.com', '$2y$10$a2R1d1falFvRJc0hm0knWeZygzcgHnpXXQ2FtjWy59Ny5jJ8D9jhW', 'user'),
-(4, 'webadmin', '$2y$10$b095X3XhrDjPwzbj3BgwiuN.1RyATcDddARL7yxi5.pBuLItt4w9K', 'admin');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -125,13 +116,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `discos`
 --
 ALTER TABLE `discos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
