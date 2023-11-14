@@ -10,5 +10,6 @@
     $router->addRoute('discos/:ID', 'DELETE', 'DiscosApiController', 'deleteDisco');
     $router->addRoute('discos', 'POST', 'DiscosApiController', 'createDisco');
     $router->addRoute('discos/:ID', 'PUT', 'DiscosApiController', 'update');
+    $router->addRoute('discos-ofertas', 'GET', 'DiscosApiController','getOfertas');
 
     $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

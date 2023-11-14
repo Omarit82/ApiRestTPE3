@@ -24,6 +24,27 @@ class discosModel extends Model{
         $discos = $query->fetchAll(PDO::FETCH_OBJ);
         return $discos;
     }
+
+    public function getOfertas($parametros){
+        $sql = 'SELECT * FROM discos WHERE oferta = 1';
+
+        if (isset($parametros['order'])){
+           
+            $sql .= ' ORDER BY '.$parametros['order'];
+
+            if (isset($parametros['sort'])){
+
+                $sql .= ' '.$parametros['sort'];
+
+            }
+        }
+
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $discos = $query->fetchAll(PDO::FETCH_OBJ);
+        return $discos;
+    }
+
     public function getDisco($id){
         $query = $this->db->prepare('SELECT * FROM discos WHERE id = ?');
         $query->execute([$id]);
@@ -45,8 +66,8 @@ class discosModel extends Model{
 
     }
 
-    public function updateDisco($id, $nombre, $autor, $genero, $precio){
-        $query = $this->db->prepare('UPDATE discos SET nombre = ?, autor = ?, genero = ?, precio = ? WHERE id = ?');
-        $query->execute([$nombre,$autor,$genero,$precio,$id]);
+    public function updateDisco($id, $nombre, $autor, $genero, $precio, $oferta){
+        $query = $this->db->prepare('UPDATE discos SET nombre = ?, autor = ?, genero = ?, precio = ?, oferta=? WHERE id = ?');
+        $query->execute([$nombre,$autor,$genero,$precio,$oferta,$id]);
     }
 }

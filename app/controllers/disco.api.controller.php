@@ -24,7 +24,21 @@ class DiscosApiController extends ApiController{
         
         $discos = $this->model->getDiscos($parametros);
         $this->view->response($discos, 200);
-    }
+    }    
+    function getOfertas($params = null){
+        $parametros = [];
+
+        if (isset($_GET['sort'])){
+            $parametros['sort'] = $_GET['sort'];
+        }
+
+        if (isset($_GET['order'])){
+            $parametros['order'] = $_GET['order'];
+        }
+        
+        $discos = $this->model->getOfertas($parametros);
+        $this->view->response($discos, 200);
+    }    
     
     
 
@@ -73,8 +87,9 @@ class DiscosApiController extends ApiController{
             $autor = $body->autor;
             $genero = $body->genero;
             $precio = $body->precio;
+            $oferta = $body->oferta;
 
-            $this->model->updateDisco($id,$nombre,$autor,$genero,$precio);
+            $this->model->updateDisco($id,$nombre,$autor,$genero,$precio,$oferta);
 
             $this->view->response(["Modificado el disco con id: ".$id], 200);
         }else{

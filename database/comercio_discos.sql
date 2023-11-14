@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2023 a las 19:26:53
+-- Tiempo de generación: 14-11-2023 a las 01:43:20
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -32,23 +32,29 @@ CREATE TABLE `discos` (
   `nombre` varchar(45) NOT NULL,
   `autor` varchar(45) NOT NULL,
   `genero` varchar(45) NOT NULL,
-  `precio` float NOT NULL
+  `precio` float NOT NULL,
+  `oferta` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `discos`
 --
 
-INSERT INTO `discos` (`id`, `nombre`, `autor`, `genero`, `precio`) VALUES
-(1, 'Si Te Agarran Las Ganas', 'Leo Mattioli', 'Cumbia', 4000),
-(3, 'The dark side of the moon', 'Pink Floyd', 'Rock', 8990.9),
-(4, 'Use your Ilussion I', 'Guns & Roses', 'Rock', 7500.9),
-(5, 'El Tesoro de los Inocentes', 'Los Fundamentalistas del Aire Acondicionado', 'Rock', 6500),
-(6, 'Porco Rex', 'Los Fundamentalistas del Aire Acondicionado', 'Rock', 7200.5),
-(7, 'Girotondo', 'Giusy Ferreri', 'Pop', 6250.25),
-(8, 'Cortometraggi', 'Giusy Ferreri', 'Pop', 4250.75),
-(9, 'Gulp!', 'Patricio Rey y sus Redonditos de Ricota', 'Rock', 6500),
-(14, 'JiJiJi', 'Indio Solari', 'Rock', 5000.33);
+INSERT INTO `discos` (`id`, `nombre`, `autor`, `genero`, `precio`, `oferta`) VALUES
+(2, 'Si te agarran las ganas', 'Leo Mattioli', 'Cumbia', 7580.9, 0),
+(3, 'The dark side of the moon', 'Pink Floyd', 'Rock', 8990.9, 0),
+(4, 'Use your Ilussion I', 'Guns & Roses', 'Rock', 7500.9, 0),
+(5, 'El Tesoro de los Inocentes', 'Los Fundamentalistas del Aire Acondicionado', 'Rock', 6500, 0),
+(6, 'Porco Rex', 'Los Fundamentalistas del Aire Acondicionado', 'Rock', 7200.5, 0),
+(7, 'Girotondo', 'Giusy Ferreri', 'Pop', 6250.25, 0),
+(8, 'Cortometraggi', 'Giusy Ferreri', 'Pop', 4250.75, 0),
+(9, 'Gulp!', 'Patricio Rey y sus Redonditos de Ricota', 'Rock', 6500, 0),
+(14, 'JiJiJi', 'Indio Solari', 'Rock', 5000.33, 0),
+(15, 'Crossroads', 'Eric Clapton', 'Blues', 7500, 0),
+(16, 'Las ciudades Venideras', 'Emilia Inclan', 'Pop', 7500.2, 1),
+(17, 'Pies Descalzos', 'Shakira', 'Pop', 5520.0, 1),
+(18, 'Get Up', 'Bryan Adams', 'Rock', 7500.2, 0),
+(19, 'El amor despues del amor', 'Fito Paez', 'Rock', 4500, 1);
 
 -- --------------------------------------------------------
 
@@ -69,7 +75,8 @@ INSERT INTO `genero` (`id_genero`, `genero`) VALUES
 (1, 'rock'),
 (2, 'blues'),
 (3, 'pop'),
-(4, 'clasica');
+(4, 'clasica'),
+(5, 'cumbia');
 
 -- --------------------------------------------------------
 
@@ -118,7 +125,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `discos`
 --
 ALTER TABLE `discos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
