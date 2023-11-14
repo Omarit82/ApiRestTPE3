@@ -105,10 +105,10 @@
                 --
 
                 INSERT INTO `users` (`id`, `email`, `pass`, `nivel`) VALUES
-                (1, 'omar@email.com', '$2y$10$''Ok1SIqiVKjesOXh/uUHKge/F9LFvFTqhpu8hdnBfxZ7iRqItW1Dou', 'admin'),
-                (2, 'matias@email.com', '$2y$10$''NqrD5XR954nuZPsfs8rRzeOBVAdBLfEVaYj2gHFVaNPpCOLJjxDC.', 'admin'),
-                (3, 'guest@email.com', '$2y$10$''a2R1d1falFvRJc0hm0knWeZygzcgHnpXXQ2FtjWy59Ny5jJ8D9jhW', 'user'),
-                (4, 'webadmin', '$2y$10$''b095X3XhrDjPwzbj3BgwiuN.1RyATcDddARL7yxi5.pBuLItt4w9K', 'admin');
+                (1, 'omar@email.com', '$2y$10$'Ok1SIqiVKjesOXh/uUHKge/F9LFvFTqhpu8hdnBfxZ7iRqItW1Dou', 'admin'),
+                (2, 'matias@email.com', '$2y$10$'NqrD5XR954nuZPsfs8rRzeOBVAdBLfEVaYj2gHFVaNPpCOLJjxDC.', 'admin'),
+                (3, 'guest@email.com', '$2y$10$'a2R1d1falFvRJc0hm0knWeZygzcgHnpXXQ2FtjWy59Ny5jJ8D9jhW', 'user'),
+                (4, 'webadmin', '$2y$10$'b095X3XhrDjPwzbj3BgwiuN.1RyATcDddARL7yxi5.pBuLItt4w9K', 'admin');
 
                 --
                 -- Índices para tablas volcadas
